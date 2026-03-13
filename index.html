@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AVANZA | Move Forward</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+
+--bg:#070b1d;
+--primary:#2A7BFF;
+--accent:linear-gradient(135deg,#6C63FF,#2A7BFF,#00D4FF);
+
+--text:#ffffff;
+--secondary:#9BA3FF;
+
+--glass:rgba(255,255,255,0.04);
+--border:rgba(255,255,255,0.1);
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:Poppins,sans-serif;
+background:var(--bg);
+color:white;
+overflow-x:hidden;
+
+}
+
+/* animated background */
+
+.bg{
+
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+
+background:linear-gradient(270deg,#070b1d,#0f1c44,#09143a,#070b1d);
+background-size:600% 600%;
+
+animation:gradient 20s ease infinite;
+
+z-index:-3;
+
+}
+
+@keyframes gradient{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+/* floating lights */
+
+.orb{
+
+position:fixed;
+border-radius:50%;
+filter:blur(120px);
+opacity:.35;
+z-index:-2;
+
+}
+
+.orb1{
+
+width:500px;
+height:500px;
+
+background:#2A7BFF;
+
+top:-150px;
+left:-150px;
+
+animation:float1 20s infinite alternate;
+
+}
+
+.orb2{
+
+width:400px;
+height:400px;
+
+background:#6C63FF;
+
+bottom:-120px;
+right:-100px;
+
+animation:float2 25s infinite alternate;
+
+}
+
+@keyframes float1{
+from{transform:translateY(0);}
+to{transform:translateY(120px);}
+}
+
+@keyframes float2{
+from{transform:translateY(0);}
+to{transform:translateY(-120px);}
+}
+
+/* navbar */
+
+nav{
+
+position:fixed;
+top:0;
+width:100%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 8%;
+
+backdrop-filter:blur(14px);
+border-bottom:1px solid var(--border);
+
+z-index:1000;
+
+}
+
+.logo{
+
+font-family:Montserrat;
+font-weight:800;
+font-size:22px;
+
+background:var(--accent);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+text-decoration:none;
+
+}
+
+.nav-links a{
+
+margin:0 18px;
+color:var(--secondary);
+text-decoration:none;
+
+font-size:14px;
+
+}
+
+.nav-links a:hover{
+
+color:var(--primary);
+
+}
+
+/* hero */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+text-align:center;
+
+padding:0 10%;
+
+perspective:1200px;
+
+}
+
+.hero-content{
+
+transition:transform .2s;
+
+}
+
+.hero h1{
+
+font-size:clamp(3rem,7vw,5rem);
+font-family:Montserrat;
+
+margin-bottom:20px;
+
+}
+
+.gradient{
+
+background:var(--accent);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+
+.hero p{
+
+max-width:650px;
+color:var(--secondary);
+font-size:18px;
+
+margin:0 auto 40px auto;
+
+text-align:center;
+
+}
+
+/* buttons */
+
+.btn{
+
+padding:16px 34px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+transition:.4s;
+
+}
+
+.btn-primary{
+
+background:var(--accent);
+color:white;
+
+box-shadow:0 10px 30px rgba(42,123,255,.3);
+
+}
+
+.btn-primary:hover{
+
+transform:translateY(-5px);
+
+}
+
+.btn-secondary{
+
+border:1px solid var(--border);
+color:white;
+
+margin-left:10px;
+
+}
+
+/* sections */
+
+section{
+
+padding:120px 10%;
+
+}
+
+.section-title{
+
+font-family:Montserrat;
+font-size:40px;
+
+text-align:center;
+
+margin-bottom:70px;
+
+}
+
+/* services */
+
+.services{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+
+}
+
+.card{
+
+background:var(--glass);
+padding:40px;
+
+border-radius:22px;
+
+border:1px solid var(--border);
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+border-color:var(--primary);
+
+}
+
+.card h3{
+
+color:var(--primary);
+margin-bottom:10px;
+
+}
+
+/* process */
+
+.process{
+
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:40px;
+
+text-align:center;
+
+}
+
+.process h1{
+
+font-size:60px;
+
+background:var(--accent);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+
+/* pricing */
+
+.pricing{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+
+}
+
+.price-card{
+
+background:var(--glass);
+border:1px solid var(--border);
+
+border-radius:28px;
+
+padding:50px 30px;
+
+text-align:center;
+
+transition:.4s;
+
+}
+
+.price-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.featured{
+
+border:2px solid var(--primary);
+
+}
+
+/* form */
+
+.form-box{
+
+max-width:650px;
+margin:auto;
+
+background:var(--glass);
+
+padding:50px;
+
+border-radius:25px;
+
+border:1px solid var(--border);
+
+}
+
+input,textarea{
+
+width:100%;
+
+padding:16px;
+
+margin-bottom:16px;
+
+background:#00000030;
+
+border:1px solid var(--border);
+
+border-radius:10px;
+
+color:white;
+
+}
+
+/* footer */
+
+footer{
+
+text-align:center;
+
+padding:40px;
+
+border-top:1px solid var(--border);
+
+color:var(--secondary);
+
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+.nav-links{
+display:none;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<nav>
+
+<a href="#" class="logo">AVANZA</a>
+
+<div class="nav-links">
+
+<a href="#services">Services</a>
+<a href="portfolio.html" class="btn btn-secondary">View Portfolio</a>
+<a href="#process">Process</a>
+<a href="#pricing">Pricing</a>
+
+<a href="#contact" class="btn btn-primary">Let's Talk</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content" id="hero">
+
+<h1>
+Move Forward with <span class="gradient">AVANZA</span>
+</h1>
+
+<p>
+We design and engineer high-performance digital systems for ambitious brands.
+From powerful websites to strategic growth systems — AVANZA helps companies launch faster, grow smarter, and dominate their market.
+</p>
+
+<div>
+
+<a href="#contact" class="btn btn-primary">Start Your Growth</a>
+
+<a href="portfolio.html" class="btn btn-secondary">View Portfolio</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2 class="section-title">Capabilities</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>Social Media</h3>
+<p>Organic growth systems designed to dominate the feed.</p>
+</div>
+
+<div class="card">
+<h3>Development</h3>
+<p>High performance web apps with modern architecture.</p>
+</div>
+
+<div class="card">
+<h3>Branding</h3>
+<p>Identity systems designed for digital-first companies.</p>
+</div>
+
+<div class="card">
+<h3>Advertising</h3>
+<p>Precision targeted campaigns focused on aggressive ROI.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="portfolio">
+
+<h2 class="section-title">Portfolio</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>Ecommerce Platform</h3>
+<p>Luxury ecommerce website built for fashion brand.</p>
+</div>
+
+<div class="card">
+<h3>Startup Landing Page</h3>
+<p>Conversion focused landing page for SaaS startup.</p>
+</div>
+
+<div class="card">
+<h3>Brand Identity</h3>
+<p>Complete branding system for digital marketing company.</p>
+</div>
+
+<div class="card">
+<h3>Clinic Website</h3>
+<p>Modern website and booking system for dental clinic.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="process">
+
+<h2 class="section-title">Workflow</h2>
+
+<div class="process">
+
+<div>
+<h1>01</h1>
+<p>Strategy</p>
+</div>
+
+<div>
+<h1>02</h1>
+<p>Design</p>
+</div>
+
+<div>
+<h1>03</h1>
+<p>Build</p>
+</div>
+
+<div>
+<h1>04</h1>
+<p>Scale</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="pricing">
+
+<h2 class="section-title">Investment</h2>
+
+<div class="pricing">
+
+<div class="price-card">
+<h3>Basic</h3>
+<h1>$2.5k</h1>
+<p>/month</p>
+</div>
+
+<div class="price-card featured">
+<h3>Growth</h3>
+<h1>$5k</h1>
+<p>/month</p>
+</div>
+
+<div class="price-card">
+<h3>Scale</h3>
+<h1>$10k</h1>
+<p>/month</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="section-title">Ready to Advance?</h2>
+
+<div class="form-box">
+
+<form id="contact-form" action="https://formspree.io/f/mbdzypzk" method="POST">
+  <input type="text" name="company" placeholder="Company Name" required>
+  <input type="email" name="email" placeholder="Work Email" required>
+  <textarea name="message" rows="5" placeholder="Tell us about your objectives..." required></textarea>
+  <button type="submit" class="btn btn-primary" style="width:100%; border:none; font-size:1.1rem;">Submit Inquiry</button>
+</form>
+
+<div style="text-align:center;margin-top:25px">
+
+<a href="https://wa.me/201501445445"
+style="color:#25D366;font-weight:600;text-decoration:none">
+
+Connect on WhatsApp →
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 AVANZA Digital Systems
+
+</footer>
+
+<script>
+
+const hero=document.getElementById("hero")
+
+document.addEventListener("mousemove",(e)=>{
+
+let x=(window.innerWidth/2-e.clientX)/25
+let y=(window.innerHeight/2-e.clientY)/25
+
+hero.style.transform=`rotateY(${x}deg) rotateX(${y}deg)`
+
+})
+
+</script>
+
+</body>
+</html>
+
